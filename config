@@ -1,0 +1,30 @@
+# this file goes to ~/Library/Preferences/Mozilla.sccache/config
+
+[dist]
+# The URL used to connect to the scheduler (should use https, given an ideal
+# setup of a HTTPS server in front of the scheduler)
+#scheduler_url = "https://sccache1.corpdmz.ber3.mozilla.com/"
+scheduler_url = "http://beta.fritz.box:10600"
+
+[dist.auth]
+#type = "mozilla"
+type = "token"
+token = "client_key"
+
+[[dist.toolchains]]
+type = "path_override"
+compiler_executable = "/Users/miko/.rustup/toolchains/stable-x86_64-apple-darwin/bin/rustc"
+archive = "/Users/miko/.mozbuild/rustc-dist-toolchain.tar.xz"
+archive_compiler_executable = "/builds/worker/toolchains/rustc/bin/rustc"
+
+[[dist.toolchains]]
+type = "path_override"
+compiler_executable = "/Users/miko/.mozbuild/clang/bin/clang"
+archive = "/Users/miko/.mozbuild/clang-dist-toolchain.tar.xz"
+archive_compiler_executable = "/builds/worker/toolchains/clang/bin/clang"
+
+[[dist.toolchains]]
+type = "path_override"
+compiler_executable = "/Users/miko/.mozbuild/clang/bin/clang++"
+archive = "/Users/miko/.mozbuild/clang-dist-toolchain.tar.xz"
+archive_compiler_executable = "/builds/worker/toolchains/clang/bin/clang"
